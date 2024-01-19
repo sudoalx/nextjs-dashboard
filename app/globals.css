@@ -16,6 +16,23 @@
   }
 }
 
+::-webkit-scrollbar {
+  width: 0.3rem;
+  height: 0.3rem;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--background-start-rgb));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--background-end-rgb));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--background-end-rgb));
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
