@@ -22,7 +22,7 @@ const getPokemons = async (
 };
 
 export default async function PokemonsPage() {
-  const pokemons = await getPokemons(151);
+  const pokemons = await getPokemons(150);
   return (
     <div className="flex flex-col items-center justify-center w-full h-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 p-4">
       {/* make a rounded badge design with tailwind */}
