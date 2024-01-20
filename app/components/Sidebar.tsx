@@ -43,7 +43,7 @@ export const Sidebar = () => {
       id="menu"
       className="bg-gray-900 min-h-screen z-10 text-slate-300 w-80 left-0 overflow-y-scroll"
     >
-      <div className="flex flex-col h-full fixed max-w-80">
+      <div className="flex flex-col h-full  max-w-80">
         <div id="logo" className="my-5 px-6">
           <h1 className="text-lg md:text-2xl font-bold text-white">
             <span className="text-blue-500">
