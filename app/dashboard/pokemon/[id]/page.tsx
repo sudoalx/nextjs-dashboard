@@ -125,7 +125,7 @@ export default async function PokemonPage({ params }: Props) {
             </div>
           </div>
 
-          <div className="flex flex-col items-start justify-center rounded-2xl bg-gray-800 bg-clip-border px-3 py-4  drop-shadow-lg ">
+          <div className="flex flex-col items-start justify-center rounded-2xl bg-gray-800 bg-clip-border px-3 py-4  drop-shadow-lg">
             <p className="text-sm text-gray-300">Shiny Sprites</p>
             <div className="flex justify-center w-full">
               <Image
