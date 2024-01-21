@@ -1,4 +1,4 @@
-import { Pokemon } from "@/pokemons";
+import { Pokemon, PokemonsResponse, SimplePokemonName } from "@/pokemons";
 import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -9,10 +9,29 @@ interface Props {
   };
 }
 
-export async function generateStaticParams() {
-  const staticPokemons = Array.from({ length: 150 }, (v, i) => `${i + 1}`);
+const getPokemons = async (
+  limit = 20,
+  offset = 0
+): Promise<SimplePokemonName[]> => {
+  try {
+    const data: PokemonsResponse = await fetch(
+      `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
+    ).then((res) => res.json());
 
-  return staticPokemons.map((name) => ({
+    const pokemons = data.results.map((pokemon) => ({
+      name: pokemon.name,
+    }));
+
+    return pokemons;
+  } catch (error) {
+    console.error("Error fetching pokemons:", error);
+    throw error;
+  }
+};
+
+export async function generateStaticParams() {
+  const pokemons = await getPokemons(150);
+  return pokemons.map(({ name }) => ({
     name: name,
   }));
 }
@@ -46,7 +65,7 @@ const getPokemon = async (name: string): Promise<Pokemon> => {
   }
 };
 
-export default async function PokemonPage({ params }: Props) {
+export default async function PokemonPage({ params }: Readonly<Props>) {
   const pokemon = await getPokemon(params.name);
 
   return (
