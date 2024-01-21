@@ -1,4 +1,5 @@
 import { Sidebar } from "@/components";
+import "animate.css";
 
 export default function DashboardLayout({
   children,
@@ -9,7 +10,7 @@ export default function DashboardLayout({
     <div className="bg-gray-800 overflow-y-scroll w-screen h-screen antialiased text-slate-300 selection:bg-blue-600 selection:text-white">
       <div className="flex">
         <Sidebar />
-        <div className="flex flex-col flex-1 min-h-screen text-slate-700">
+        <div className="min-h-screen text-slate-700 animate__animated animate__fadeIn">
           {children}
         </div>
       </div>
