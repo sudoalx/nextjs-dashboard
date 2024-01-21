@@ -70,7 +70,7 @@ export default async function PokemonPage({ params }: Readonly<Props>) {
 
   return (
     <div className="flex mt-5 flex-col items-center text-gray-300 dark:bg-gray-800 p-5">
-      <div className="relative flex flex-col items-center rounded-[20px] w-full max-w-screen-md mx-auto bg-white dark:bg-gray-900 bg-clip-border shadow-lg p-3">
+      <div className="relative flex flex-col items-center rounded-[20px] w-full max-w-screen-md mx-auto bg-white dark:bg-gray-900 bg-clip-border shadow-lg p-3 animate__animated animate__fadeIn">
         <div className="mt-2 mb-8 w-full">
           <h1 className="px-2 text-xl font-bold text-slate-700 dark:text-white capitalize">
             #{pokemon.id} {pokemon.name}
