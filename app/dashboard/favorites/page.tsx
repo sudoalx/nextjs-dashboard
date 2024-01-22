@@ -1,4 +1,4 @@
-import { PokemonGrid, PokemonsResponse, SimplePokemon } from "@/pokemons";
+import { PokemonGrid } from "@/pokemons";
 
 export const metadata = {
   title: "List of Pokemons",
