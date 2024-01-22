@@ -4,6 +4,7 @@ import Link from "next/link";
 import {
   IoBrowsersOutline,
   IoCalculatorOutline,
+  IoHeart,
   IoLogoReact,
 } from "react-icons/io5";
 import { SidebarMenuItem } from ".";
@@ -34,6 +35,12 @@ const menuItems: MenuItemsProps[] = [
     icon: <CgPokemon className="w-6 h-6 text-white" />,
     title: "Pokemons",
     subTitle: "Static generation: List of pokemons",
+  },
+  {
+    path: "/dashboard/favorites",
+    icon: <IoHeart className="w-6 h-6 text-white" />,
+    title: "Favorite Pokemons",
+    subTitle: "Global State: List of favorite pokemons",
   },
 ];
 
