@@ -5,6 +5,7 @@ import {
   IoBrowsersOutline,
   IoCalculatorOutline,
   IoHeart,
+  IoLogoGithub,
   IoLogoReact,
 } from "react-icons/io5";
 import { SidebarMenuItem } from "..";
@@ -15,6 +16,7 @@ interface MenuItemsProps {
   icon: JSX.Element;
   title: string;
   subTitle: string;
+  target?: string;
 }
 
 const menuItems: MenuItemsProps[] = [
@@ -41,6 +43,13 @@ const menuItems: MenuItemsProps[] = [
     icon: <IoHeart className="w-6 h-6 text-white" />,
     title: "Favorite Pokemons",
     subTitle: "Global State: List of favorite pokemons",
+  },
+  {
+    path: "https://github.com/sudoalx/nextjs-dashboard",
+    icon: <IoLogoGithub className="w-6 h-6 text-white" />,
+    title: "Source Code",
+    subTitle: "Source code of this dashboard on GitHub",
+    target: "_blank",
   },
 ];
 
