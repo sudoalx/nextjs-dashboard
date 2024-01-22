@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "@/store";
 import {
   decreaseCount,
   increaseCount,
-  resetCount,
+  initCounterState,
 } from "@/store/counter/counterSlice";
 import { useEffect } from "react";
 
@@ -17,7 +17,7 @@ export const CartCounter = ({ value = 0 }: CartProps) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(resetCount(value));
+    dispatch(initCounterState(value));
   }, [dispatch, value]);
 
   return (
