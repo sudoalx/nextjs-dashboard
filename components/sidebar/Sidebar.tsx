@@ -7,7 +7,7 @@ import {
   IoHeart,
   IoLogoReact,
 } from "react-icons/io5";
-import { SidebarMenuItem } from ".";
+import { SidebarMenuItem } from "..";
 import { CgPokemon } from "react-icons/cg";
 
 interface MenuItemsProps {
