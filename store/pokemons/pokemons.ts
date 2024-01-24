@@ -1,19 +1,11 @@
 import { SimplePokemon } from "@/pokemons";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-/*
-"1": {id:1,name:"name"}
-"2": {id:1,name:"name2"}
-*/
-
-interface PokeFavState {
+export interface PokeFavState {
   [key: string]: SimplePokemon;
 }
 
-const initialState = {
-  "1": { id: 1, name: "bulbasaur" },
-  "2": { id: 2, name: "ivysaur" },
-};
+const initialState: PokeFavState = {};
 
 const pokemonsSlice = createSlice({
   name: "pokemons",
