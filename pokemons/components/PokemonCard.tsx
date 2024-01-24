@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { SimplePokemon } from "..";
 import { IoHeart, IoHeartOutline } from "react-icons/io5";
-import { useAppSelector } from "@/store";
+import { AppDispatch, useAppSelector } from "@/store";
 import { useDispatch } from "react-redux";
 import { toggleFavorite } from "@/store/pokemons/pokemons";
 
@@ -14,7 +14,7 @@ interface Props {
 export const PokemonCard = ({ pokemon }: Props) => {
   const { id, name } = pokemon;
   const isFavorite = useAppSelector((state) => !!state.favpokemons[id]);
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
 
   const onToggle = () => {
     dispatch(toggleFavorite(pokemon));
