@@ -1,7 +1,11 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { SimplePokemon } from "..";
-import { IoHeartOutline } from "react-icons/io5";
+import { IoHeart, IoHeartOutline } from "react-icons/io5";
+import { useAppSelector } from "@/store";
+import { useDispatch } from "react-redux";
+import { toggleFavorite } from "@/store/pokemons/pokemons";
 
 interface Props {
   pokemon: SimplePokemon;
@@ -9,6 +13,13 @@ interface Props {
 
 export const PokemonCard = ({ pokemon }: Props) => {
   const { id, name } = pokemon;
+  const isFavorite = useAppSelector((state) => !!state.favpokemons[id]);
+  const dispatch = useDispatch();
+
+  const onToggle = () => {
+    dispatch(toggleFavorite(pokemon));
+  };
+
   return (
     <div className="mx-auto right-0 mt-2 w-55">
       <div className="bg-gray-800 rounded overflow-hidden shadow-lg">
@@ -35,17 +46,25 @@ export const PokemonCard = ({ pokemon }: Props) => {
         </div>
         <div className="">
           <button
-            // onClick={() => console.log(`Mark as favorite ${name}`)}
-            className="px-4 py-2 hover:bg-gray-600 flex items-center transition duration-300 ease-in-out"
+            onClick={onToggle}
+            className="px-4 py-2 hover:bg-gray-600 flex items-center transition duration-300 ease-in-out w-full"
           >
             <div className="text-red-600">
-              <IoHeartOutline className="w-6 h-6" />
+              {isFavorite ? (
+                <IoHeart className="w-6 h-6" />
+              ) : (
+                <IoHeartOutline className="w-6 h-6" />
+              )}
             </div>
-            <div className="pl-3">
+            <div className="pl-3 text-left">
               <p className="text-sm font-medium text-gray-200 leading-none">
-                Mark as favorite
+                {isFavorite ? "Favorite" : "Mark as favorite"}
               </p>
-              <p className="text-xs text-gray-400">Click to mark as favorite</p>
+              <p className="text-xs text-gray-400">
+                {isFavorite
+                  ? "Marked as favorite"
+                  : "Click to mark as favorite"}
+              </p>
             </div>
           </button>
         </div>
