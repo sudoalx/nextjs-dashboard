@@ -1,4 +1,4 @@
-import { FavoritePokemons, PokemonsResponse, SimplePokemon } from "@/pokemons";
+import { FavoritePokemons } from "@/pokemons";
 
 export const metadata = {
   title: "Favorite Pokemons",
