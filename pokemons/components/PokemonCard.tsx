@@ -53,6 +53,7 @@ export const PokemonCard = ({ pokemon }: Props) => {
               {isFavorite ? (
                 <IoHeart className="w-6 h-6" />
               ) : (
+                  
                 <IoHeartOutline className="w-6 h-6" />
               )}
             </div>
