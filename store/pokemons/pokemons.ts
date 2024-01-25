@@ -5,7 +5,16 @@ export interface PokeFavState {
   [key: string]: SimplePokemon;
 }
 
-const initialState: PokeFavState = {};
+const getInitialState = (): PokeFavState => {
+  const favoritePokemons = JSON.parse(
+    localStorage.getItem("favorite-pokemons") || "{}"
+  );
+  return favoritePokemons;
+};
+
+const initialState: PokeFavState = {
+  ...getInitialState(),
+};
 
 const pokemonsSlice: Slice<PokeFavState> = createSlice({
   name: "pokemons",
@@ -17,9 +26,13 @@ const pokemonsSlice: Slice<PokeFavState> = createSlice({
 
       if (!!state[id]) {
         delete state[id];
-        return;
+        // return;
+      } else {
+        state[id] = pokemon;
       }
-      state[id] = pokemon;
+
+      // TODO: DO NOT DO THIS
+      localStorage.setItem("favorite-pokemons", JSON.stringify(state));
     },
   },
 });
